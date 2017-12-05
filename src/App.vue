@@ -4,7 +4,7 @@
     <div class="content">
       <div class="content-wrap">
         <ul>
-          <li v-for="i in 20">
+          <li v-for="i in 10">
             <div class="item">
               <div><img class="img" src="./assets/logo.png"/></div>
               <div><span class="title">小米智能马桶盖</span></div>
