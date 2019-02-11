@@ -1,48 +1,37 @@
 <template>
-  <div id="app">
-    <vHeader :siteInfo="siteInfo"></vHeader>
-    <vContent :content="content"></vContent>
-    <vFooter :siteInfo="siteInfo"></vFooter>
-  </div>
+  <div class="content">
+      <div class="content-wrap">
+        <ul>
+          <li v-for="it in content">
+            <div class="item">
+              <div><img class="img" src="../assets/logo.png"/></div>
+              <div><span class="title">{{it.title}}</span></div>
+              <div><button class="btn" v-on:click="look(it.msg)">{{it.btnName}}</button></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
 </template>
 
 <script>
-import vHeader from "./components/header";
-import vFooter from "./components/footer";
-import vContent from "./components/content";
-
 export default {
-  name: "app",
-  components: {
-    vHeader,
-    vFooter,
-    vContent
-  },
+  name: "vContent",
   data() {
-    return {
-      siteInfo: {
-        title: "小米",
-        desc: "为发骚而生",
-        name: "小米科技",
-        url: "http://www.xiaomi.com"
-      },
-      content: 
-        [{
-        title: "小米智能马桶盖",
-        btnName: "官网查看",
-        msg: "http://www.xiaomi.com"
-        },{
-        title: "小米智能马桶盖",
-        btnName: "天猫网店查看",
-        msg: "https://xiaomi.tmall.com/shop/view_shop.htm"
-        }]
-      
-    };
+    return {};
+  },
+  props: ["content"],
+  methods: {
+      look: (value) => {
+          window.open(value);
+      }
   }
 };
 </script>
 
-<style>
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+
 #app {
   text-align: center;
   color: #2c3e50;
@@ -113,4 +102,6 @@ body {
 ul{
   list-style: none;
 }
+</style>
+
 </style>
